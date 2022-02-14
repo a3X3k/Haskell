@@ -185,6 +185,11 @@ occuR v n = replicate n v
 ### Find all the digits in a string where the prelude function is True on those characters which are digits: ' 0 ' , ' 1 ' up to ' 9 ' 
 
 ```py
+dig :: String -> [Bool]
+
+dig [] = []
+
+dig (x : xs) = [x `elem` ['0' .. '9']] ++ dig (xs)
 ```
 
 ### Double all the elements of a list of integers
