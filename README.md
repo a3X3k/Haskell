@@ -126,6 +126,28 @@ nPrime :: Int -> [Int]
 nPrime n = take n [x | x <- [2 .. ], isPrime x]
 ```
 
+```py
+nPrime :: Int -> [Int]
+
+nPrime n = findPrime n 2
+
+findPrime :: Int -> Int -> [Int]
+
+findPrime 0 _ = []
+
+findPrime n x
+ | isPrime x [2..floor (sqrt (fromIntegral x))] == False = findPrime n (x + 1)
+ | otherwise = [x] ++ findPrime (n-1) (x + 1)
+
+isPrime :: Int -> [Int] -> Bool
+
+isPrime _ [] = True 
+
+isPrime x (y : ys) 
+ | x `mod` y == 0 = False
+ | otherwise = isPrime x (ys)
+```
+
 ### Verify whether a list is sorted in ascending order
 
 ```py
