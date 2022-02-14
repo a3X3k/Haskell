@@ -163,11 +163,15 @@ isSorted (x : y : xs) = if x <= y then isSorted (y : xs) else False
 ### Define a function that behaves as : but is defined in terms of ++
 
 ```py
-myCons :: [a]->[a]
+myConsRev :: [a]->[a]
 
-myCons [] = []
+myConsRev [] = []
 
-myCons (x : xs) = myCons(xs) ++ [x]
+myConsRev (x : xs) = myConsRev(xs) ++ [x]
+
+myCons :: a -> [a] -> [a]
+
+myCons a b = [a] ++ b
 ```
 
 ### Creates a list containing n occurrences of v
