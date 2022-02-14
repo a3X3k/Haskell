@@ -1,6 +1,6 @@
 <div align = "center">
 
-# [Haskell](#)
+# [Haskell Programming](#)
   
 </div>
 
