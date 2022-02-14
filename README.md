@@ -246,6 +246,16 @@ findDiv x list
 ### Find all occurrences of an integer n in a list
 
 ```py
+indexL :: [Int] -> Int -> [Int]
+
+indexL list x = findOcc list x 0
+
+findOcc :: [Int] -> Int -> Int -> [Int]
+
+findOcc [] _ _ = []
+
+findOcc (x:xs) ele i = if x == ele then [i] ++ findOcc xs ele (i + 1)
+ else findOcc xs ele (i + 1)
 ```
 
 ### Find if the element is present in the List 
