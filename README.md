@@ -243,15 +243,28 @@ findDiv x list
  | otherwise = findDiv x (tail list)
 ```
 
-```py
-```
+### Find all occurrences of an integer n in a list
 
 ```py
 ```
 
-
+### Find if the element is present in the List 
 
 ```py
+isElement :: [Int] -> Int -> Bool
+
+isElement [] _ = False
+
+isElement (x:xs) y = if x == y then True
+ else isElement (xs) y
 ```
 
+### Find the sum of lengths of inner lists
 
+```py
+lenOfLists :: [[a]] -> Int
+
+lenOfLists [] = 0
+
+lenOfLists x = length(head x) + lenOfLists(tail x)
+```
