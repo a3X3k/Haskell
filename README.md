@@ -205,5 +205,53 @@ doubleList (x:xs) = (2*x) : doubleList (xs)
 ### Convert all small letters in a string into capitals, leaving the other characters unchanged
 
 ```py
+import Data.Char
+
+toUpCase :: String -> String
+
+toUpCase [] = []
+
+toUpCase (x : xs) = if isLower x then toUpper x : toUpCase xs
+ else x : toUpCase xs
 ```
+
+### Remove all non-letters from the list
+
+```py
+import Data.Char
+
+removeNonL :: String -> String
+
+removeNonL [] = []
+
+removeNonL (x : xs) = if isLetter x then x : removeNonL xs
+ else removeNonL xs
+```
+
+### Find the list of divisors of a positive integer
+
+```py
+divisor :: Int -> [Int]
+
+divisor x = findDiv x [ 1..(x - 1) ]
+
+findDiv :: Int -> [Int] -> [Int]
+
+findDiv x list 
+ | length list == 0 = []
+ | x `mod` (head list) == 0 = [head list] ++ findDiv x (tail list)
+ | otherwise = findDiv x (tail list)
+```
+
+```py
+```
+
+```py
+```
+
+
+
+```py
+```
+
 
