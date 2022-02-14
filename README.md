@@ -4,6 +4,204 @@
   
 </div>
 
+### Convert Integer to Double
+
+```py
+double :: Int -> Double
+
+double x = y
+ where y = fromIntegral x :: Double 
+```
+
+### Take an integer input and return the the next integer as input which is the next integer number.
+
+```py
+successor :: Int -> Int
+
+successor x = x + 1
+```
+
+### Take an integer and return a boolean value True if even else False
+
+```py
+evenBool :: Int -> Bool
+
+evenBool x = if x `mod` 2 == 0 then True else False
+```
+
+```py
+evenBool' x | x `mod` 2 == 0 = True
+            | otherwise = False
+```
+
+### Find the absolute of a number n
+
+```py
+abs' :: Int -> Int
+
+abs' x = if x >= 0 then x else -x
+```
+
+```py
+abs'' :: Int -> Int
+
+abs'' x | x >= 0 = x
+        | otherwise = -x
+```
+
+### Find the Power of n
+
+```py
+power :: Float -> Int -> Float
+
+power _ 0 = 1
+
+power x n = x * (power x (n-1))
+```
+
+### Find Leap Year or Not
+
+```py
+leap :: Int -> String
+
+leap x | x `mod` 4 == 0 && x `mod` 10 /= 0 = "It's a Leap Year!"
+ | x `mod` 400 == 0 = "It's a Leap Year!"
+ | otherwise = "It's not a Leap Year!"
+```
+
+### Calculate |c| = √(x2 + y2)
+
+```py
+complexNumber :: Float -> Float -> Float
+
+complexNumber x y = ( x * x + y * y ) ** (1/2)
+```
+
+### Convert Bool to Int & Int to Bool
+
+```py
+boolToInt :: Bool -> Int
+
+boolToInt x | x == True = 1
+ | otherwise = 0
+```
+
+```py
+intToBool :: Int -> Bool
+
+intToBool x | x == 0 = False
+ | otherwise = True
+```
+
+### Find the largest of 2 numbers
+
+```py
+maxof2 :: (RealFloat x) => x -> x -> x
+
+maxof2 x y | x >= y = x
+ | otherwise = y
+```
+
+### Find the largest of 3 numbers
+
+```py
+max3 :: (RealFloat x) => x -> x -> x -> x
+
+max3 x y z = 
+
+ if (x >= y) && (x >= z) then x
+ else if (y >= x) && (y >= z) then y
+ else z 
+```
+
+### Find Even or Odd
+
+```py
+evenodd :: Int -> String
+
+evenodd x = if x `mod` 2 == 0 then "Even" else "Odd"
+```
+
+### Find the distance between two points in a xy-plane. Let P = (x1, y1) and Q = (x2, y2).
+
+```py
+dist :: (RealFloat x) => x -> x -> x -> x -> x
+
+dist x1 y1 x2 y2 = sqrt((a)^2 + (b)^2) where 
+ a = x2 - x1      
+ b = y2 - y1
+```
+
+# Find Min or Max
+
+```py
+min1 :: (Ord a) => a -> a -> a
+
+min1 x y | x < y = x
+ | otherwise = y
+
+
+max1 :: (Ord a) => a -> a -> a
+
+max1 x y | x > y = x
+ | otherwise = y
+```
+
+### Verify whether the first argument divides the second one. 
+
+```py
+divides :: Int -> Int -> Bool
+
+divides 0 _ = False
+
+divides x y = y `mod` x == 0
+
+divide :: Int -> Int -> Bool
+
+divide x y = if x == 0 then False
+ else if y `mod` x == 0 then True
+ else False
+
+divi :: Int -> Int -> Bool
+
+divi x y | x == 0 = False
+ | y `mod` x == 0 = True
+ | otherwise = False
+```
+
+### Implement Stirling’s formula
+
+```py
+stirling :: Int -> Float
+
+stirling x = sqrt ( 2 * pi * a ) * ( (a / exp 1) ** a ) where
+ a :: Float
+ a = fromIntegral x
+```
+
+### Find the number of solution of a quadratic equation
+
+```py
+noOfSol :: Int -> Int -> Int -> String
+
+noOfSol a b c | sol > 0 = "2 Solutions"
+ | sol == 0 = "1 Solution"
+ | otherwise = "No Solution" where
+ sol = (b * b) - (4 * a * c)
+```
+
+### Find the two roots of a Quadratic equation
+
+```py
+rootsOfQuadraticEqu :: (Float, Float, Float) -> (Float, Float)
+
+rootsOfQuadraticEqu (a, b, c) = (x, y) where
+ x = eq + sqrt root / ( 2 * a )
+ y = eq - sqrt root / ( 2 * a )
+ eq = - b / (2 * a)
+ root = ( b * b ) - ( 4 * a * c )
+```
+
 ### Find 2nd Last Element of a list
 
 ```
