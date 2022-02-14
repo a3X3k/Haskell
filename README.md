@@ -30,6 +30,7 @@ isPalindrome list = list == reverse list
 removeDup :: ( Ord a ) => [ a ] -> [ a ]
 
 removeDup [] = []
+
 removeDup ( x : xs ) = x : removeDup ( remove x xs )
 
  where
@@ -37,18 +38,141 @@ removeDup ( x : xs ) = x : removeDup ( remove x xs )
   remove :: ( Ord a ) => a -> [ a ] -> [ a ]
   
   remove x [] = []
+  
   remove x ( y : ys )
    | x == y = remove x ys
    | otherwise = y : ( remove x ys )
 ```
 
-### Find N Prime
+### Duplicate each element of the list and produce a new list
+
+```py
+adddup :: ( Ord a ) => [ a ] -> [ a ]
+
+adddup [] = []
+
+adddup ( x : xs ) = x : x : adddup ( xs )
+```
+
+### Replicate the elements of a list N times
+
+```py
+replic :: ( Ord a ) => [ a ] -> Int -> [ a ]
+
+replic [] _ = []
+
+replic ( x : xs ) n = replicate n x ++ replic xs n
+```
+
+### Remove every Nth element from the list
+
+```py
+removeNth :: [a] -> Int -> [a]
+
+removeNth [] _ = []
+
+removeNth xs n = take (n-1) xs ++ removeNth (drop n xs) n
+```
+
+### Divide the list into two the first n elements as the first list and the rest as the second list and form a list of lists.  
+
+```py
+splitn :: Int -> [a] -> ([a], [a])
+
+splitn n x = (take n x, drop n x)
+```
+
+### Slice a list based on the input indices i and k. 
+
+```py
+slice :: [a] -> Int -> Int -> [a]
+
+slice x i k = drop i (take (k+1) x)
+```
+
+### Remove the Kth indexed element from a list
+
+```py
+remk :: [a] -> Int -> [a]
+
+remk [] _ = []
+
+remk (x:xs) 0 = xs
+
+remk (x:xs) n = x : remk (xs) (n-1) 
+```
+
+### Insert an element N at a particular index i of a list
+
+```py
+insertn :: [a] -> a -> Int -> [a]
+
+insertn [] _ _ = []
+
+insertn x element 0 = element : x
+
+insertn (x : xs) element n = x : insertn xs element (n - 1)
+```
+
+### Find First N Primes
 
 ```py
 isPrime :: Int -> Bool
+
 isPrime n = null [i | i <- [2..floor (sqrt (fromIntegral n))], n `mod` i == 0]
 
 nPrime :: Int -> [Int]
+
 nPrime n = take n [x | x <- [2 .. ], isPrime x]
+```
+
+### Verify whether a list is sorted in ascending order
+
+```py
+isSorted :: (Ord a) => [a] -> Bool
+
+isSorted [] = True
+
+isSorted [x] = True
+
+isSorted (x : y : xs) = if x <= y then isSorted (y : xs) else False
+```
+
+### Define a function that behaves as : but is defined in terms of ++
+
+```py
+myCons :: [a]->[a]
+
+myCons [] = []
+
+myCons (x : xs) = myCons(xs) ++ [x]
+```
+
+### Creates a list containing n occurrences of v
+
+```py
+occuR :: a -> Int -> [a]
+
+occuR v n = replicate n v
+```
+
+### Find all the digits in a string where the prelude function is True on those characters which are digits: ' 0 ' , ' 1 ' up to ' 9 ' 
+
+```py
+```
+
+### Double all the elements of a list of integers
+
+```py
+doubleList :: [Int] -> [Int]
+
+doubleList [] = []
+
+doubleList (x:xs) = (2*x) : doubleList (xs)
+```
+
+### Convert all small letters in a string into capitals, leaving the other characters unchanged
+
+```py
 ```
 
