@@ -182,7 +182,7 @@ occuR :: a -> Int -> [a]
 occuR v n = replicate n v
 ```
 
-### Find all the digits in a string where the prelude function is True on those characters which are digits: ' 0 ' , ' 1 ' up to ' 9 ' 
+### Find all the digits in a string where the prelude function is True on those characters which are digits '0' up to '9' 
 
 ```py
 dig :: String -> [Bool]
