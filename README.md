@@ -480,3 +480,151 @@ lenOfLists [] = 0
 
 lenOfLists x = length(head x) + lenOfLists(tail x)
 ```
+
+### Define a function that maps a positive integer to its list of factors
+
+```py
+factor :: Int -> [Int]
+
+factor y = [ x | x <- [1 .. y], y `mod` x == 0]
+```
+
+### Define a function that returns the list of all prime numbers up to a given limit n
+
+```py
+isPrime :: Int -> Bool
+
+isPrime n = null [i | i <- [2 .. floor (sqrt (fromIntegral n))], n `mod` i == 0]
+
+nPrime :: Int -> [Int]
+
+nPrime n = [x | x <- [2 .. n], isPrime x]
+```
+
+### Define a function pairs that uses the zip function for returning the list of all pairs of adjacent elements from a list
+
+```py
+pairs :: [a] -> [(a, a)]
+
+pairs x = zip x (tail x)
+```
+
+### Define a function sorted that decides if the elements in a list are sorted [ Checking the list which is formed by pair function ]
+
+```py
+pair :: [a] -> [(a, a)]
+
+pair x = zip x (tail x)
+
+sortF :: (Ord a) => (a, a) -> Bool
+
+sortF (x,y) = if x <= y then True else False
+
+sorted :: (Ord a) => [a] -> Bool
+
+sorted x = null [ i | i <- (pair x), sortF i == False]
+```
+
+### Define a function positions using zip function which will return the list of all positions of a value in a list
+
+```py
+positions :: Eq a => [a] -> a -> [Int]
+
+positions list x = [i | (i, j) <- zip [0 .. ] list, j == x]
+```
+
+### Define a function count to get the number of times a character occurs in a String
+
+```py
+count :: (Ord a) => [a] -> a -> Int
+
+count list x = length [ i | i <- list, i == x ]
+```
+
+### Consider a triple (x,y,z) of positive integers called pythagorean if x^2 + y^2 = z^2. 
+
+```py
+pythagorean :: Int -> [(Int, Int, Int)]
+
+pythagorean n = [ (x, y, z) | x <- [ 1.. n ], y <- [ 1 .. n ], z <- [ 1 .. n ], ( x^2 + y^2 == z^2 ) ]
+```
+
+### A perfect number is a positive integer which is equal to the sum of all its factors, excluding the number itself. Using list comprehension, define a function perfects :: Int->Int that returns all the perfect numbers up to a given limit n.
+
+```py
+fact :: Int -> [Int]
+
+fact x = [ i | i <- [ 1 .. (x - 1) ], x `mod` i == 0]
+
+
+sumOfF :: [Int] -> Int
+
+sumOfF [] = 0
+
+sumOfF ( x : xs ) = x + sumOfF xs
+
+
+perfect :: Int -> [Int]
+
+perfect n = [ i | i <- [ 1 .. n ], sumOfF (fact i) == i]
+```
+
+### Define a function scalar to find the scalar product of list elements of two lists xs and ys of length n
+
+```py
+scalarP :: [Int] -> [Int] -> [Int]
+
+scalarP x y = [ i * j | ( i, j ) <- zip x y ]
+```
+
+### Define the function sumsq, which takes an integer n as its argument and returns the sum of the squares of the first n integers
+
+```py
+sumSQ :: Int -> Int
+
+sumSQ n = sum [ i*i | i <- [ 1 .. n ] ]
+```
+
+### Convert every character in string to uppercase and remove any digits in it
+
+```py
+import Data.Char
+
+charToUp :: String -> String
+
+charToUp string = [ toUpper i | i <- string, i `elem` [ 'a' .. 'z' ] || i `elem` [ 'A' .. 'Z' ] ]
+```
+
+### Define a function that extracts the upper case letters only
+
+```py
+extractUpper :: String -> String
+
+extractUpper string = [ i | i <- string, isUpper i] 
+```
+
+### Define a function that will capitalize the first letter of a String and return the entire String
+
+```py
+caps :: String -> String
+
+caps string = toUpper (head string) : tail string
+```
+
+### Define a function cpy to make a string of n characters
+
+```py
+cpy :: Char -> Int -> String
+
+cpy c n = replicate n c
+```
+
+### Define a function to place space characters between characters in a string
+
+```py
+space :: String -> String
+
+space ( x : xs )
+ | length(xs) == 0 = x : ""
+ | otherwise = x : " " ++ space xs 
+```
