@@ -132,7 +132,7 @@ dist x1 y1 x2 y2 = sqrt((a)^2 + (b)^2) where
  b = y2 - y1
 ```
 
-# Find Min or Max
+### Find Min or Max
 
 ```py
 min1 :: (Ord a) => a -> a -> a
