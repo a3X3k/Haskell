@@ -628,3 +628,130 @@ space ( x : xs )
  | length(xs) == 0 = x : ""
  | otherwise = x : " " ++ space xs 
 ```
+
+### Take a list of integers and produce a list of the squares of those integers
+
+```py
+squareAll :: [Int] -> [Int]
+
+squareAll x = map (^2) x
+```
+
+### Capitalize all the letters in the list of characters
+
+```py
+capL :: [Char] -> [Char]
+
+capL x  = map toUpper x
+```
+
+### Take a list of strings as its argument and reverses each element of the list and then reverses the resulting list. 
+
+```py
+nestReverse :: [String] -> [String]
+
+nestReverse x = map reverse (reverse x)
+```
+
+### Take an object and a list of lists and sticks the object at the front of every component list
+
+```py
+inFront :: a -> [[a]] -> [[a]]
+
+inFront x y = map ( x : ) y 
+```
+
+### Take a list of strings as its argument and returns the list of their lengths
+
+```py
+strLengths :: [String] -> [Int]
+
+strLengths x = map length x
+```
+
+### Take a list of strings and returns a list of the integers 0 and 1 such that 0 is the nth element of the value if the nth string of the argument contains an even number of characters and 1 is the nth element of the value if the nth string contains an odd number of characters.
+
+```py
+parityList :: [String] -> [Int]
+
+parityList x = map check x where 
+
+check x | even (length x) = 0
+ | otherwise = 1
+```
+
+### Take an integer n as its argument and returns the sum of the squares of the first n integers
+
+```py
+sumsq :: Int -> Int
+
+sumsq x = sum (map (^2) [1..x])
+```
+
+### Remove all the capital letters from a string
+
+```py
+noCapitals :: String -> String
+
+noCapitals x = [ i | i <- x, i `notElem` ['A' .. 'Z'] ]
+
+remUpper :: String -> String
+
+remUpper = filter isLower
+```
+
+### Take a list of strings as its argument and removes every occurrence of a vowel from each element
+
+```py
+checkVowel :: String -> String
+
+checkVowel x = [ i | i <- x, i `notElem` ['a','e','i','o','u','A','E','I','O','U'] ]
+
+removeVowels :: [String] -> [String]
+
+removeVowels x = map checkVowel x
+
+
+cVow :: String -> String
+
+cVow x = filter (\x -> not (x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u')) x
+
+remVowels :: [String] -> [String]
+
+remVowels = map cVow
+```
+
+### Remove every occurrence of a vowel from a list of characters
+
+```py
+remVow :: [Char] -> [Char] 
+
+remVow x = filter (\x -> not (x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u')) x
+```
+
+### Changes lower case a’s to b’s, b’s to c’s and c’s to a’s in a String
+
+```py
+rotabc = map f where 
+
+ f 'a' = 'b' 
+ f 'b' = 'c'
+ f 'c' = 'a'
+ f c = c
+```
+
+### 
+
+```py
+```
+
+### 
+
+```py
+```
+
+
+
+
+
+
