@@ -874,7 +874,9 @@ main = do
 
 ```py
 replaceChar :: String -> Char -> String
+
 replaceChar "" _ = ""
+
 replaceChar (x:xs) c = if x == c then "#" ++ (replaceChar xs c ) else [x] ++ (replaceChar xs c )
 
 main = do
