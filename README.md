@@ -851,17 +851,34 @@ palindromeList :: Eq a => [[a]] -> [Bool]
 palindromeList list = map checkPal list
 ```
 
-### 
+### Define a function that picks first and last element in a list and perform addition, then pick second and second last element and perform a multiplication and so on by continuing addition followed by mutiplication until the list cannot further do computation. The result should be produced as a list.
 
 ```py
+altSumProduct [] = []
+
+altSumProduct [x] = [x]
+
+altSumProduct [x,y] = [x+y]
+
+altSumProduct [x,y,z] = [x+z, y]
+
+altSumProduct x = (head x)+(last x) : head (tail x) * last(init x) : altSumProduct (tail(tail(init(init x))))
+
+main = do
+  input <- getLine
+  let xs = read input :: [Int]
+  print (altSumProduct xs)
 ```
 
-### 
+### Define a function that takes a string s and a character c and replaces each the occurence of c in s with '#' and finally prints the transformed string.
 
 ```py
-```
+replaceChar :: String -> Char -> String
+replaceChar "" _ = ""
+replaceChar (x:xs) c = if x == c then "#" ++ (replaceChar xs c ) else [x] ++ (replaceChar xs c )
 
-### 
-
-```py
+main = do
+ s <- getLine
+ c <- getChar
+ putStrLn (replaceChar s c)
 ```
